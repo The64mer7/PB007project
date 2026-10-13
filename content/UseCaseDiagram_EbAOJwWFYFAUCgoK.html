@@ -1,0 +1,1900 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Use Case Diagram - Use Case Diagram1</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		Nalezinková-Kellner-Svajčík	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Use Case Diagram - Use Case Diagram1		</span>
+<a onclick="javascript: showVpLink('Nalezinková-Kellner-Svajčík.vpp://diagram/EbAOJwWFYFAUCgoK', 'Use Case Diagram1\nNalezinkov&#xe1;-Kellner-Svaj&#x10d;&#xed;k.vpp://diagram/EbAOJwWFYFAUCgoK', 'Use Case Diagram1', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|236.0|2.0|767.0|767.0|System_HZwOJwWFYFAUCgt0.html|System_HZwOJwWFYFAUCgt0.html|cLoFbIWGAqAA8iFZ" id="optioncLoFbIWGAqAA8iFZ">System : System</option>
+<option value="shape|32.0|128.0|30.0|60.0|Actor_LZoOJwWFYFAUCgt7.html|Actor_LZoOJwWFYFAUCgt7.html|dLoFbIWGAqAA8iFc" id="optiondLoFbIWGAqAA8iFc">User : Actor</option>
+<option value="shape|148.0|252.0|30.0|60.0|Actor_JCuBJwWFYFAUCgvg.html|Actor_JCuBJwWFYFAUCgvg.html|rLoFbIWGAqAA8iFf" id="optionrLoFbIWGAqAA8iFf">Registered User : Actor</option>
+<option value="shape|32.0|572.0|30.0|60.0|Actor_iDpBJwWFYFAUCgvt.html|Actor_iDpBJwWFYFAUCgvt.html|XLoFbIWGAqAA8iFi" id="optionXLoFbIWGAqAA8iFi">Premium user : Actor</option>
+<option value="shape|148.0|24.0|30.0|60.0|Actor_xL5BJwWFYFAUCgv2.html|Actor_xL5BJwWFYFAUCgv2.html|groFbIWGAqAA8iFl" id="optiongroFbIWGAqAA8iFl">Unregistered user : Actor</option>
+<option value="shape|1068.0|462.0|30.0|60.0|Actor_QS5JJwWFYFAUCg2y.html|Actor_QS5JJwWFYFAUCg2y.html|GroFbIWGAqAA8iFx" id="optionGroFbIWGAqAA8iFx">Manager : Actor</option>
+<option value="shape|620.0|820.0|30.0|60.0|Actor_C6VZJwWFYFAUCg54.html|Actor_C6VZJwWFYFAUCg54.html|7roFbIWGAqAA8iGD" id="option7roFbIWGAqAA8iGD">Car : Actor</option>
+<option value="shape|1068.0|646.0|30.0|60.0|Actor_9SWXJwWFYFAUChB6.html|Actor_9SWXJwWFYFAUChB6.html|LboFbIWGAqAA8iGn" id="optionLboFbIWGAqAA8iGn">Payment provider : Actor</option>
+<option value="shape|1068.0|554.0|30.0|60.0|Actor_5uKfJwWFYFAUChFU.html|Actor_5uKfJwWFYFAUChFU.html|U7oFbIWGAqAA8iGz" id="optionU7oFbIWGAqAA8iGz">Traffic information provider : Actor</option>
+<option value="shape|166.0|462.0|30.0|60.0|Actor_vCOopwWFYFAUChN6.html|Actor_vCOopwWFYFAUChN6.html|a7oFbIWGAqAA8iG5" id="optiona7oFbIWGAqAA8iG5">Standard user : Actor</option>
+<option value="shape|1068.0|56.0|30.0|60.0|Actor_e653_IWFYGxunwv9.html|Actor_e653_IWFYGxunwv9.html|17oFbIWGAqAA8iHC" id="option17oFbIWGAqAA8iHC">Time : Actor</option>
+<option value="shape|298.0|38.0|80.0|40.0|UseCase_A7xhJwWFYFAUCgzv.html|UseCase_A7xhJwWFYFAUCgzv.html|EroFbIWGAqAA8iFo" id="optionEroFbIWGAqAA8iFo">Register : Use Case</option>
+<option value="shape|503.0|137.0|130.0|40.0|UseCase_aYdRJwWFYFAUCg0f.html|UseCase_aYdRJwWFYFAUCg0f.html|sroFbIWGAqAA8iFr" id="optionsroFbIWGAqAA8iFr">Search for available cars : Use Case</option>
+<option value="shape|406.0|203.0|86.0|40.0|UseCase_ZICxJwWFYFAUCg1R.html|UseCase_ZICxJwWFYFAUCg1R.html|iroFbIWGAqAA8iFu" id="optioniroFbIWGAqAA8iFu">Order ride : Use Case</option>
+<option value="shape|275.0|452.0|127.0|40.0|UseCase_VjqpJwWFYFAUCg3g.html|UseCase_VjqpJwWFYFAUCg3g.html|uroFbIWGAqAA8iF0" id="optionuroFbIWGAqAA8iF0">Subscribe to premium membership : Use Case</option>
+<option value="shape|531.0|346.0|80.0|40.0|UseCase_wtLpJwWFYFAUCg4E.html|UseCase_wtLpJwWFYFAUCg4E.html|JroFbIWGAqAA8iF3" id="optionJroFbIWGAqAA8iF3">Create asset : Use Case</option>
+<option value="shape|531.0|398.0|80.0|40.0|UseCase__SHpJwWFYFAUCg4e.html|UseCase__SHpJwWFYFAUCg4e.html|lroFbIWGAqAA8iF6" id="optionlroFbIWGAqAA8iF6">Edit asset : Use Case</option>
+<option value="shape|531.0|449.0|80.0|40.0|UseCase_bDfpJwWFYFAUCg5E.html|UseCase_bDfpJwWFYFAUCg5E.html|troFbIWGAqAA8iF9" id="optiontroFbIWGAqAA8iF9">Delete asset : Use Case</option>
+<option value="shape|734.0|505.0|80.0|40.0|UseCase_SzYZJwWFYFAUCg5e.html|UseCase_SzYZJwWFYFAUCg5e.html|TroFbIWGAqAA8iGA" id="optionTroFbIWGAqAA8iGA">View statistics : Use Case</option>
+<option value="shape|246.0|685.0|80.0|40.0|UseCase_KHo5JwWFYFAUCg7H.html|UseCase_KHo5JwWFYFAUCg7H.html|ProFbIWGAqAA8iGG" id="optionProFbIWGAqAA8iGG">Report arrival : Use Case</option>
+<option value="shape|326.0|685.0|80.0|40.0|UseCase_jbE5JwWFYFAUCg7Z.html|UseCase_jbE5JwWFYFAUCg7Z.html|AboFbIWGAqAA8iGJ" id="optionAboFbIWGAqAA8iGJ">Set availability : Use Case</option>
+<option value="shape|421.0|685.0|120.0|40.0|UseCase_77M5JwWFYFAUCg7r.html|UseCase_77M5JwWFYFAUCg7r.html|YboFbIWGAqAA8iGM" id="optionYboFbIWGAqAA8iGM">Report technical issue : Use Case</option>
+<option value="shape|541.0|685.0|85.0|40.0|UseCase__NW5JwWFYFAUCg8d.html|UseCase__NW5JwWFYFAUCg8d.html|UboFbIWGAqAA8iGP" id="optionUboFbIWGAqAA8iGP">Report location : Use Case</option>
+<option value="shape|633.0|685.0|93.0|40.0|UseCase_E3e5JwWFYFAUCg8z.html|UseCase_E3e5JwWFYFAUCg8z.html|8boFbIWGAqAA8iGS" id="option8boFbIWGAqAA8iGS">Report battery status : Use Case</option>
+<option value="shape|400.0|541.0|80.0|40.0|UseCase_84f5JwWFYFAUCg9t.html|UseCase_84f5JwWFYFAUCg9t.html|yboFbIWGAqAA8iGV" id="optionyboFbIWGAqAA8iGV">Choose car accessories : Use Case</option>
+<option value="shape|741.0|165.0|97.0|40.0|UseCase_7919JwWFYFAUCg_e.html|UseCase_7919JwWFYFAUCg_e.html|2boFbIWGAqAA8iGY" id="option2boFbIWGAqAA8iGY">Send notifications : Use Case</option>
+<option value="shape|897.0|685.0|85.0|40.0|UseCase_QRfHJwWFYFAUCg_w.html|UseCase_QRfHJwWFYFAUCg_w.html|BboFbIWGAqAA8iGb" id="optionBboFbIWGAqAA8iGb">Calculate route : Use Case</option>
+<option value="shape|750.0|243.0|80.0|40.0|UseCase_BSQnJwWFYFAUChAC.html|UseCase_BSQnJwWFYFAUChAC.html|5boFbIWGAqAA8iGe" id="option5boFbIWGAqAA8iGe">Save data : Use Case</option>
+<option value="shape|750.0|25.0|80.0|40.0|UseCase_K7YnJwWFYFAUChAU.html|UseCase_K7YnJwWFYFAUChAU.html|1boFbIWGAqAA8iGh" id="option1boFbIWGAqAA8iGh">Cancel route : Use Case</option>
+<option value="shape|733.0|95.0|101.0|40.0|UseCase_BmsnJwWFYFAUChAm.html|UseCase_BmsnJwWFYFAUChAm.html|9boFbIWGAqAA8iGk" id="option9boFbIWGAqAA8iGk">Send refund : Use Case</option>
+<option value="shape|650.0|626.0|95.0|40.0|UseCase_qZOXJwWFYFAUChCD.html|UseCase_qZOXJwWFYFAUChCD.html|XboFbIWGAqAA8iGq" id="optionXboFbIWGAqAA8iGq">Process payment : Use Case</option>
+<option value="shape|733.0|685.0|148.0|40.0|UseCase_rhK3JwWFYFAUChCd.html|UseCase_rhK3JwWFYFAUChCd.html|_boFbIWGAqAA8iGt" id="option_boFbIWGAqAA8iGt">Find a suitable place to park : Use Case</option>
+<option value="shape|271.0|310.0|135.0|40.0|UseCase_LqmvJwWFYFAUChEY.html|UseCase_LqmvJwWFYFAUChEY.html|o7oFbIWGAqAA8iGw" id="optiono7oFbIWGAqAA8iGw">Review order history : Use Case</option>
+<option value="shape|626.0|565.0|135.0|40.0|UseCase_sbefJwWFYFAUChFl.html|UseCase_sbefJwWFYFAUChFl.html|C7oFbIWGAqAA8iG2" id="optionC7oFbIWGAqAA8iG2">Provide state of the traffic : Use Case</option>
+<option value="shape|275.0|605.0|125.0|60.0|UseCase_LaQgNwWGAqAAghH6.html|UseCase_LaQgNwWGAqAAghH6.html|27oFbIWGAqAA8iG8" id="option27oFbIWGAqAA8iG8">Unsubscribe from premium membership : Use Case</option>
+<option value="shape|660.0|398.0|205.0|89.0|UseCase_HsivMIWGAqAA8goq.html|UseCase_HsivMIWGAqAA8goq.html|p7oFbIWGAqAA8iG_" id="optionp7oFbIWGAqAA8iG_">Manage assets : Use Case</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Use_Case_Diagram1.png" usemap="#diagram_map" class="Image" width="1162" height="914"/>
+					<map name="diagram_map">
+<area imageId="diagram" coords="543.0, 177.0, 543.0, 251.7193, 446.4366, 372.0, 441.0, 372.0, 441.0, 378.77194, 436.0, 385.0, 441.0, 389.0909, 441.0, 389.0909, 441.0, 541.0, 455.0, 541.0, 455.0, 384.0351, 549.76056, 266.0, 557.0, 266.0, 557.0, 256.98245, 561.0, 252.0, 557.0, 248.72728, 557.0, 177.0" coords2="543.0, 177.0, 543.0, 251.7193, 446.4366, 372.0, 441.0, 372.0, 441.0, 378.77194, 436.0, 385.0, 441.0, 389.0909, 441.0, 389.0909, 441.0, 541.0, 455.0, 541.0, 455.0, 384.0351, 549.76056, 266.0, 557.0, 266.0, 557.0, 256.98245, 561.0, 252.0, 557.0, 248.72728, 557.0, 177.0" shape="poly" alt=":Include" id="areadiagram_map_j7oFbIWGAqAA8iHF_default" href="Include_JwEv_IWFYGxunwzn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="773.0, 65.0, 773.0, 95.0, 787.0, 95.0, 787.0, 65.0" coords2="773.0, 65.0, 773.0, 95.0, 787.0, 95.0, 787.0, 65.0" shape="poly" alt=":Include" id="areadiagram_map_77oFbIWGAqAA8iHd_default" href="Include_8yvABIWFYGxunw10.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="492.0, 215.0, 492.0, 243.0, 485.50793, 243.0, 492.69162, 639.0, 490.0, 639.0, 490.0, 653.0, 492.9456, 653.0, 493.0, 656.0, 507.0, 656.0, 506.9456, 653.0, 650.0, 653.0, 650.0, 639.0, 506.69162, 639.0, 499.0, 215.0" coords2="492.0, 215.0, 492.0, 243.0, 485.50793, 243.0, 492.69162, 639.0, 490.0, 639.0, 490.0, 653.0, 492.9456, 653.0, 493.0, 656.0, 507.0, 656.0, 506.9456, 653.0, 650.0, 653.0, 650.0, 639.0, 506.69162, 639.0, 499.0, 215.0" shape="poly" alt=":Include" id="areadiagram_map_n7oFbIWGAqAA8iHh_default" href="Include_NF2r3wWFYGx_5g6G.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="611.0, 426.0, 611.0, 438.0, 588.0, 438.0, 588.0, 440.0, 660.0, 440.0, 660.0, 426.0" coords2="611.0, 426.0, 611.0, 438.0, 588.0, 438.0, 588.0, 440.0, 660.0, 440.0, 660.0, 426.0" shape="poly" alt=":Extend" id="areadiagram_map_v7oFbIWGAqAA8iHl_default" href="Extend_vRhvMIWGAqAA8gpt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="611.0, 466.0, 611.0, 480.0, 660.0, 480.0, 660.0, 466.0" coords2="611.0, 466.0, 611.0, 480.0, 660.0, 480.0, 660.0, 466.0" shape="poly" alt=":Extend" id="areadiagram_map_wHoFbIWGAqAA8iHq_default" href="Extend_8tRvMIWGAqAA8gpy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="611.0, 378.78513, 611.0, 386.0, 584.1429, 386.0, 584.0, 387.0, 660.0, 404.5868, 660.0, 398.0, 694.0357, 398.0, 611.0, 378.78513" coords2="611.0, 378.78513, 611.0, 386.0, 584.1429, 386.0, 584.0, 387.0, 660.0, 404.5868, 660.0, 398.0, 694.0357, 398.0, 611.0, 378.78513" shape="poly" alt=":Extend" id="areadiagram_map_4HoFbIWGAqAA8iHv_default" href="Extend_wm64sIWGAqAA8g_o.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="62.0, 140.0, 62.0, 154.0, 503.0, 154.0, 503.0, 140.0" coords2="62.0, 140.0, 62.0, 154.0, 503.0, 154.0, 503.0, 140.0" shape="poly" alt=":Association" id="areadiagram_map_MHoFbIWGAqAA8iH0_default" href="Association_a0AxJwWFYFAUCg0t.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="70.0, 192.0, 60.0, 202.0, 148.0, 297.91013, 148.0, 277.01123, 70.0, 192.0" coords2="70.0, 192.0, 60.0, 202.0, 148.0, 297.91013, 148.0, 277.01123, 70.0, 192.0" shape="poly" alt=":Generalization" id="areadiagram_map_SHoFbIWGAqAA8iIC_default" href="Generalization_lBPBJwWFYFAUCgzU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="406.0, 236.68953, 168.0, 247.0, 168.0, 252.0, 178.0, 252.0, 178.0, 260.56677, 178.0, 260.56677, 445.0, 249.0, 445.0, 243.0, 406.0, 243.0, 406.0, 236.68953" coords2="406.0, 236.68953, 168.0, 247.0, 168.0, 252.0, 178.0, 252.0, 178.0, 260.56677, 178.0, 260.56677, 445.0, 249.0, 445.0, 243.0, 406.0, 243.0, 406.0, 236.68953" shape="poly" alt=":Association" id="areadiagram_map_KHoFbIWGAqAA8iIG_default" href="Association_BQmxJwWFYFAUCg2E.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="204.0, 304.0, 204.0, 318.0, 271.0, 318.5537, 271.0, 318.5537, 271.0, 310.0, 325.0, 310.0, 325.0, 305.0, 204.0, 304.0" coords2="204.0, 304.0, 204.0, 318.0, 271.0, 318.5537, 271.0, 318.5537, 271.0, 310.0, 325.0, 310.0, 325.0, 305.0, 204.0, 304.0" shape="poly" alt=":Association" id="areadiagram_map_WHoFbIWGAqAA8iIU_default" href="Association_mSOvJwWFYFAUChEm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="105.0, 317.0, 40.61811, 554.0, 39.0, 554.0, 39.0, 559.95654, 39.0, 559.95654, 36.0, 571.0, 39.0, 571.6429, 39.0, 571.6429, 39.0, 572.0, 53.0, 572.0, 53.0, 563.0, 119.0, 321.0, 105.0, 317.0" coords2="105.0, 317.0, 40.61811, 554.0, 39.0, 554.0, 39.0, 559.95654, 39.0, 559.95654, 36.0, 571.0, 39.0, 571.6429, 39.0, 571.6429, 39.0, 572.0, 53.0, 572.0, 53.0, 563.0, 119.0, 321.0, 105.0, 317.0" shape="poly" alt=":Generalization" id="areadiagram_map_eHoFbIWGAqAA8iIi_default" href="Generalization_dlvBJwWFYFAUCgzY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="51.0, 565.0, 51.0, 572.0, 62.0, 572.0, 62.0, 579.0, 400.0, 579.0, 400.0, 565.0" coords2="51.0, 565.0, 51.0, 572.0, 62.0, 572.0, 62.0, 579.0, 400.0, 579.0, 400.0, 565.0" shape="poly" alt=":Association" id="areadiagram_map_RHoFbIWGAqAA8iIm_default" href="Association_uriFJwWFYFAUCg_S.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="62.0, 598.0374, 62.0, 598.0374, 62.0, 598.0374, 62.0, 598.0374, 62.0, 598.0374, 62.0, 612.0374, 62.0, 612.0374, 275.0, 612.7619, 275.0, 612.7619, 275.0, 605.0, 345.0, 605.0, 345.0, 599.0, 62.0, 598.0374" coords2="62.0, 598.0374, 62.0, 598.0374, 62.0, 598.0374, 62.0, 598.0374, 62.0, 598.0374, 62.0, 612.0374, 62.0, 612.0374, 275.0, 612.7619, 275.0, 612.7619, 275.0, 605.0, 345.0, 605.0, 345.0, 599.0, 62.0, 598.0374" shape="poly" alt=":Association" id="areadiagram_map_5HoFbIWGAqAA8iI0_default" href="Association_LJsgNwWGAqAAghId.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="109.0, 90.0, 58.045456, 128.0, 62.0, 128.0, 62.0, 142.01695, 62.0, 142.01695, 117.0, 101.0, 109.0, 90.0" coords2="109.0, 90.0, 58.045456, 128.0, 62.0, 128.0, 62.0, 142.01695, 62.0, 142.01695, 117.0, 101.0, 109.0, 90.0" shape="poly" alt=":Generalization" id="areadiagram_map_NHoFbIWGAqAA8iJC_default" href="Generalization_9oLBJwWFYFAUCgyK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="178.0, 50.07194, 178.0, 64.071945, 178.0, 64.071945, 298.0, 64.93525, 298.0, 64.93525, 298.0, 50.935253, 298.0, 50.935253, 178.0, 50.07194" coords2="178.0, 50.07194, 178.0, 64.071945, 178.0, 64.071945, 298.0, 64.93525, 298.0, 64.93525, 298.0, 50.935253, 298.0, 50.935253, 178.0, 50.07194" shape="poly" alt=":Association" id="areadiagram_map_9HoFbIWGAqAA8iJG_default" href="Association__9thJwWFYFAUCg0Q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1068.0, 505.03558, 814.0, 505.9395, 814.0, 505.9395, 814.0, 519.9395, 814.0, 519.9395, 1068.0, 519.0356, 1068.0, 519.0356, 1068.0, 505.03558" coords2="1068.0, 505.03558, 814.0, 505.9395, 814.0, 505.9395, 814.0, 519.9395, 814.0, 519.9395, 1068.0, 519.0356, 1068.0, 519.0356, 1068.0, 505.03558" shape="poly" alt=":Association" id="areadiagram_map_LHoFbIWGAqAA8iJU_default" href="Association_dGkZJwWFYFAUCg5s.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1068.0, 463.03983, 865.0, 463.8486, 865.0, 463.8486, 865.0, 477.8486, 865.0, 477.8486, 1068.0, 477.03983, 1068.0, 477.03983, 1068.0, 463.03983" coords2="1068.0, 463.03983, 865.0, 463.8486, 865.0, 463.8486, 865.0, 477.8486, 865.0, 477.8486, 1068.0, 477.03983, 1068.0, 477.03983, 1068.0, 463.03983" shape="poly" alt=":Association" id="areadiagram_map_nHoFbIWGAqAA8iJi_default" href="Association_KKKvMIWGAqAA8go_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="326.0, 717.76074, 326.0, 725.0, 302.84348, 725.0, 620.0, 836.5382, 620.0, 836.5382, 620.0, 821.4724, 326.0, 717.76074" coords2="326.0, 717.76074, 326.0, 725.0, 302.84348, 725.0, 620.0, 836.5382, 620.0, 836.5382, 620.0, 821.4724, 326.0, 717.76074" shape="poly" alt=":Association" id="areadiagram_map__HoFbIWGAqAA8iJw_default" href="Association_DRx5JwWFYFAUCg9B.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="406.0, 717.5779, 406.0, 725.0, 389.93497, 725.0, 620.0, 840.9754, 620.0, 840.9754, 620.0, 825.4549, 620.0, 825.4549, 406.0, 717.5779" coords2="406.0, 717.5779, 406.0, 725.0, 389.93497, 725.0, 620.0, 840.9754, 620.0, 840.9754, 620.0, 825.4549, 620.0, 825.4549, 406.0, 717.5779" shape="poly" alt=":Association" id="areadiagram_map_onoFbIWGAqAA8iJ._default" href="Association_zKJ5JwWFYFAUCg9J.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="541.0, 706.90216, 541.0, 725.0, 534.6575, 725.0, 617.0, 887.0, 630.0, 882.0, 628.9834, 880.0, 620.0, 880.0, 620.0, 862.3261, 541.0, 706.90216" coords2="541.0, 706.90216, 541.0, 725.0, 534.6575, 725.0, 617.0, 887.0, 630.0, 882.0, 628.9834, 880.0, 620.0, 880.0, 620.0, 862.3261, 541.0, 706.90216" shape="poly" alt=":Association" id="areadiagram_map_knoFbIWGAqAA8iKM_default" href="Association_QUp5JwWFYFAUCg9R.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="626.0, 699.0, 626.0, 725.0, 619.0, 725.0, 619.0, 830.0, 620.0, 830.0, 620.0, 820.0, 633.0, 820.0, 633.0, 699.0" coords2="626.0, 699.0, 626.0, 725.0, 619.0, 725.0, 619.0, 830.0, 620.0, 830.0, 620.0, 820.0, 633.0, 820.0, 633.0, 699.0" shape="poly" alt=":Association" id="areadiagram_map_cnoFbIWGAqAA8iKa_default" href="Association_xPp5JwWFYFAUCg9Z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="626.0, 714.0, 626.0, 820.0, 640.0, 820.0, 640.0, 725.0, 633.0, 725.0, 633.0, 714.0" coords2="626.0, 714.0, 626.0, 820.0, 640.0, 820.0, 640.0, 725.0, 633.0, 725.0, 633.0, 714.0" shape="poly" alt=":Association" id="areadiagram_map_ynoFbIWGAqAA8iKo_default" href="Association_MHZ5JwWFYFAUCg9h.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="733.0, 707.3196, 650.0, 854.4949, 650.0, 879.0769, 652.0, 880.0, 739.4128, 725.0, 733.0, 725.0, 733.0, 707.3196" coords2="733.0, 707.3196, 650.0, 854.4949, 650.0, 879.0769, 652.0, 880.0, 739.4128, 725.0, 733.0, 725.0, 733.0, 707.3196" shape="poly" alt=":Association" id="areadiagram_map_anoFbIWGAqAA8iK2_default" href="Association_rBIP_IWFYGxunwxr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="897.0, 716.2698, 650.0, 823.777, 650.0, 823.777, 650.0, 838.95325, 650.0, 838.95325, 911.80994, 725.0, 897.0, 725.0, 897.0, 716.2698" coords2="897.0, 716.2698, 650.0, 823.777, 650.0, 823.777, 650.0, 838.95325, 650.0, 838.95325, 911.80994, 725.0, 897.0, 725.0, 897.0, 716.2698" shape="poly" alt=":Association" id="areadiagram_map_WnoFbIWGAqAA8iLE_default" href="Association_3SlP_IWFYGxunwzR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="745.0, 656.0, 745.0, 666.0, 710.0, 666.0, 710.0, 670.0, 1068.0, 670.0, 1068.0, 656.0" coords2="745.0, 656.0, 745.0, 666.0, 710.0, 666.0, 710.0, 670.0, 1068.0, 670.0, 1068.0, 656.0" shape="poly" alt=":Association" id="areadiagram_map_BnoFbIWGAqAA8iLS_default" href="Association_QkEf3wWFYGx_5g_L.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1068.0, 558.0244, 708.0, 559.0, 708.0, 565.0, 761.0, 565.0, 761.0, 572.8564, 761.0, 572.8564, 1068.0, 572.0244, 1068.0, 572.0244, 1068.0, 558.0244" coords2="1068.0, 558.0244, 708.0, 559.0, 708.0, 565.0, 761.0, 565.0, 761.0, 572.8564, 761.0, 572.8564, 1068.0, 572.0244, 1068.0, 572.0244, 1068.0, 558.0244" shape="poly" alt=":Association" id="areadiagram_map_JnoFbIWGAqAA8iLg_default" href="Association_VEhfJwWFYFAUChFz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="165.0, 319.0, 165.0, 472.0, 166.0, 472.0, 166.0, 462.0, 179.0, 462.0, 179.0, 319.0" coords2="165.0, 319.0, 165.0, 472.0, 166.0, 472.0, 166.0, 462.0, 179.0, 462.0, 179.0, 319.0" shape="poly" alt=":Generalization" id="areadiagram_map_FnoFbIWGAqAA8iLu_default" href="Generalization_SWhopwWFYFAUChOF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="185.0, 457.0, 185.0, 462.0, 196.0, 462.0, 196.0, 471.10477, 196.0, 471.10477, 275.0, 471.85715, 275.0, 471.85715, 275.0, 457.85715, 275.0, 457.85715, 185.0, 457.0" coords2="185.0, 457.0, 185.0, 462.0, 196.0, 462.0, 196.0, 471.10477, 196.0, 471.10477, 275.0, 471.85715, 275.0, 471.85715, 275.0, 457.85715, 275.0, 457.85715, 185.0, 457.0" shape="poly" alt=":Association" id="areadiagram_map_dnoFbIWGAqAA8iLy_default" href="Association_W2LopwWFYFAUChO0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1065.0, 121.0, 811.24, 243.0, 830.0, 243.0, 830.0, 249.38461, 1070.0, 134.0, 1065.0, 121.0" coords2="1065.0, 121.0, 811.24, 243.0, 830.0, 243.0, 830.0, 249.38461, 1070.0, 134.0, 1065.0, 121.0" shape="poly" alt=":Association" id="areadiagram_map_TnoFbIWGAqAA8iMA_default" href="Association_3LWP_IWFYGxunwyd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1078.0, 55.0, 830.0, 55.873238, 830.0, 55.873238, 830.0, 65.0, 794.0, 65.0, 794.0, 70.0, 1068.0, 69.03521, 1068.0, 69.03521, 1068.0, 56.0, 1078.0, 56.0, 1078.0, 55.0" coords2="1078.0, 55.0, 830.0, 55.873238, 830.0, 55.873238, 830.0, 65.0, 794.0, 65.0, 794.0, 70.0, 1068.0, 69.03521, 1068.0, 69.03521, 1068.0, 56.0, 1078.0, 56.0, 1078.0, 55.0" shape="poly" alt=":Association" id="areadiagram_map_bnoFbIWGAqAA8iMO_default" href="Association_woD3_IWFYGxunwwC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1068.0, 108.0, 834.0, 108.959015, 834.0, 108.959015, 834.0, 122.959015, 834.0, 122.959015, 1068.0, 122.0, 1068.0, 108.0" coords2="1068.0, 108.0, 834.0, 108.959015, 834.0, 108.959015, 834.0, 122.959015, 834.0, 122.959015, 1068.0, 122.0, 1068.0, 108.0" shape="poly" alt=":Association" id="areadiagram_map_3noFbIWGAqAA8iMc_default" href="Association_6Sj3_IWFYGxunwwK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1072.0, 123.0, 806.0, 161.0, 806.5714, 165.0, 838.0, 165.0, 838.0, 170.71428, 1074.0, 137.0, 1072.0, 123.0" coords2="1072.0, 123.0, 806.0, 161.0, 806.5714, 165.0, 838.0, 165.0, 838.0, 170.71428, 1074.0, 137.0, 1072.0, 123.0" shape="poly" alt=":Association" id="areadiagram_map_AXoFbIWGAqAA8iMq_default" href="Association__SL3_IWFYGxunwxX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="1068, 56, 1098, 116" coords2="1068, 56, 1098, 116" shape="rect" alt="Time:Actor" id="areadiagram_map_17oFbIWGAqAA8iHC_default" href="Actor_e653_IWFYGxunwv9.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Description:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Manager gets the option to create,edit, or delete assets.
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Primary actors: Manager
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Secondary actors: -
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Preconditions: -
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Main flow:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Manager chooses to create new asset or selects an asset to 
+      edit/delete
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if Manager chooses to create new asset{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Create asset()}
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if Manager selects an asset{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if Manager chooses to edit the asset{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Edit asset()}
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if Manager chooses to delete the asset{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if Manager confirms the choice{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Delete asset()}
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;else{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;back to home screen}}}
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Post-conditions:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;One of the extensions is called
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Alternative flow:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Manager logs out:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Action gets canceled
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+    &amp;lt;/p&amp;gt;
+    &amp;nbsp;
+  &amp;lt;/body&amp;gt;" coords="660, 398, 865, 487" coords2="660, 398, 865, 487" shape="rect" alt="Manage assets:Use Case" id="areadiagram_map_p7oFbIWGAqAA8iG__default" href="UseCase_HsivMIWGAqAA8goq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;A premium user can cancel their premium subscription. The system 
+      updates the user's membership status and deletes their access to premium 
+      features.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="275, 605, 400, 665" coords2="275, 605, 400, 665" shape="rect" alt="Unsubscribe from premium membership:Use Case" id="areadiagram_map_27oFbIWGAqAA8iG8_default" href="UseCase_LaQgNwWGAqAAghH6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="166, 462, 196, 522" coords2="166, 462, 196, 522" shape="rect" alt="Standard user:Actor" id="areadiagram_map_a7oFbIWGAqAA8iG5_default" href="Actor_vCOopwWFYFAUChN6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The system obtains traffic information from an external traffic 
+      information provider. It uses this information to plan the routes of the 
+      cars.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="626, 565, 761, 605" coords2="626, 565, 761, 605" shape="rect" alt="Provide state of the traffic:Use Case" id="areadiagram_map_C7oFbIWGAqAA8iG2_default" href="UseCase_sbefJwWFYFAUChFl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="1068, 554, 1098, 614" coords2="1068, 554, 1098, 614" shape="rect" alt="Traffic information provider:Actor" id="areadiagram_map_U7oFbIWGAqAA8iGz_default" href="Actor_5uKfJwWFYFAUChFU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Registered users can &amp;lt;span&amp;gt;view their previous orders and rides. The 
+      system displays relevant historical information, such as booking details 
+      and ride records.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="271, 310, 406, 350" coords2="271, 310, 406, 350" shape="rect" alt="Review order history:Use Case" id="areadiagram_map_o7oFbIWGAqAA8iGw_default" href="UseCase_LqmvJwWFYFAUChEY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      When the car isn't carrying passengers and is available, the system 
+      finds a place to park and navigates the car there.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="733, 685, 881, 725" coords2="733, 685, 881, 725" shape="rect" alt="Find a suitable place to park:Use Case" id="areadiagram_map__boFbIWGAqAA8iGt_default" href="UseCase_rhK3JwWFYFAUChCd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The system processes payment for a ride or a premium membership. 
+      It communicates with the external payment provider to handle the 
+      transaction and determine its outcome.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="650, 626, 745, 666" coords2="650, 626, 745, 666" shape="rect" alt="Process payment:Use Case" id="areadiagram_map_XboFbIWGAqAA8iGq_default" href="UseCase_qZOXJwWFYFAUChCD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="1068, 646, 1098, 706" coords2="1068, 646, 1098, 706" shape="rect" alt="Payment provider:Actor" id="areadiagram_map_LboFbIWGAqAA8iGn_default" href="Actor_9SWXJwWFYFAUChB6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      The system sends back the money for the canceled order but deducts a 
+      cancellation fee.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="733, 95, 834, 135" coords2="733, 95, 834, 135" shape="rect" alt="Send refund:Use Case" id="areadiagram_map_9boFbIWGAqAA8iGk_default" href="UseCase_BmsnJwWFYFAUChAm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      If the passengers don't get onboard the vehicle within 15 minutes after 
+      it arrives to the pickup point, the system cancels the order.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="750, 25, 830, 65" coords2="750, 25, 830, 65" shape="rect" alt="Cancel route:Use Case" id="areadiagram_map_1boFbIWGAqAA8iGh_default" href="UseCase_K7YnJwWFYFAUChAU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      The system saves all data (orders, car information, routes, etc.) every 
+      second.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="750, 243, 830, 283" coords2="750, 243, 830, 283" shape="rect" alt="Save data:Use Case" id="areadiagram_map_5boFbIWGAqAA8iGe_default" href="UseCase_BSQnJwWFYFAUChAC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      All routes to the destinations are computed by the system and then sent 
+      to the vehicle. The route is computed based on the current position of 
+      the vehicle and the traffic situation.&amp;nbsp;The route is represented by a 
+      collection of waypoints that the autonomous car is able to follow.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="897, 685, 982, 725" coords2="897, 685, 982, 725" shape="rect" alt="Calculate route:Use Case" id="areadiagram_map_BboFbIWGAqAA8iGb_default" href="UseCase_QRfHJwWFYFAUCg_w.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The system sends notifications to relevant users about the status 
+      of their route, such as changes of route, cancellations, or vehicle 
+      arrival.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="741, 165, 838, 205" coords2="741, 165, 838, 205" shape="rect" alt="Send notifications:Use Case" id="areadiagram_map_2boFbIWGAqAA8iGY_default" href="UseCase_7919JwWFYFAUCg_e.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      During search, premium users can choose additional car accessories, such 
+      as entertainment systems, comfort accessories, etc.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="400, 541, 480, 581" coords2="400, 541, 480, 581" shape="rect" alt="Choose car accessories:Use Case" id="areadiagram_map_yboFbIWGAqAA8iGV_default" href="UseCase_84f5JwWFYFAUCg9t.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      The car sends its battery status to the system every second. Whenever 
+      the battery charge drops below 40%, and the vehicle is not carrying out 
+      any order at the moment, the system will navigate the vehicle to the 
+      nearest free charging station.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="633, 685, 726, 725" coords2="633, 685, 726, 725" shape="rect" alt="Report battery status:Use Case" id="areadiagram_map_8boFbIWGAqAA8iGS_default" href="UseCase_E3e5JwWFYFAUCg8z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      The vehicle sends its position to the system every second.&amp;nbsp;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="541, 685, 626, 725" coords2="541, 685, 626, 725" shape="rect" alt="Report location:Use Case" id="areadiagram_map_UboFbIWGAqAA8iGP_default" href="UseCase__NW5JwWFYFAUCg8d.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The car reports a technical problem or malfunction. In response, 
+      the system modifies the route or finds a suitable place to park if 
+      needed.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="421, 685, 541, 725" coords2="421, 685, 541, 725" shape="rect" alt="Report technical issue:Use Case" id="areadiagram_map_YboFbIWGAqAA8iGM_default" href="UseCase_77M5JwWFYFAUCg7r.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      The car sets its status as available when it isn't currently driving 
+      passengers or en route to a pickup location or when its battery is above 
+      40% and as unavailable otherwise.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="326, 685, 406, 725" coords2="326, 685, 406, 725" shape="rect" alt="Set availability:Use Case" id="areadiagram_map_AboFbIWGAqAA8iGJ_default" href="UseCase_jbE5JwWFYFAUCg7Z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The car's system reports that it has arrived at the pickup 
+      location. The system records the arrival information so that the route 
+      status can be updated.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="246, 685, 326, 725" coords2="246, 685, 326, 725" shape="rect" alt="Report arrival:Use Case" id="areadiagram_map_ProFbIWGAqAA8iGG_default" href="UseCase_KHo5JwWFYFAUCg7H.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="620, 820, 650, 880" coords2="620, 820, 650, 880" shape="rect" alt="Car:Actor" id="areadiagram_map_7roFbIWGAqAA8iGD_default" href="Actor_C6VZJwWFYFAUCg54.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      The manager can &amp;lt;span&amp;gt;access statistical information about system 
+      operations and asset usage. These statistics help monitor performance 
+      and support management decisions.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="734, 505, 814, 545" coords2="734, 505, 814, 545" shape="rect" alt="View statistics:Use Case" id="areadiagram_map_TroFbIWGAqAA8iGA_default" href="UseCase_SzYZJwWFYFAUCg5e.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The manager removes an asset that is no longer needed or 
+      available. The system updates its records to reflect the removal.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="531, 449, 611, 489" coords2="531, 449, 611, 489" shape="rect" alt="Delete asset:Use Case" id="areadiagram_map_troFbIWGAqAA8iF9_default" href="UseCase_bDfpJwWFYFAUCg5E.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The manager modifies the details of an existing asset. The system 
+      saves the changes to ensure the asset information remains current.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="531, 398, 611, 438" coords2="531, 398, 611, 438" shape="rect" alt="Edit asset:Use Case" id="areadiagram_map_lroFbIWGAqAA8iF6_default" href="UseCase__SHpJwWFYFAUCg4e.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;The manager adds a new asset to the system by entering its 
+      relevant details. The system stores the new asset record for future 
+      management and use.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="531, 346, 611, 386" coords2="531, 346, 611, 386" shape="rect" alt="Create asset:Use Case" id="areadiagram_map_JroFbIWGAqAA8iF3_default" href="UseCase_wtLpJwWFYFAUCg4E.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Standard user can become Premium user by subscribing to
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="275, 452, 402, 492" coords2="275, 452, 402, 492" shape="rect" alt="Subscribe to premium membership:Use Case" id="areadiagram_map_uroFbIWGAqAA8iF0_default" href="UseCase_VjqpJwWFYFAUCg3g.html" onmouseover="storeReferenceAndSubdiagramInfos('diagram','275, 452, 402, 492',new Array(),new Array(),new Array(),new Array(),new Array(),new Array('ActivityDiagram_NbrRbIWGAqAA8hGj.html/Subscribe to premium membership Activity Diagram/ActivityDiagram','ActivityDiagram_OJmJbIWGAqAA8hLw.html/Subscribe to premium membership Activity Diagram2/ActivityDiagram','ActivityDiagram_czcz_IWFYGxwggoo.html/Subscribe to premium membership/ActivityDiagram'),new Array(),new Array(),new Array()),hideReferenceIcon(),showSubdiagramIcon('diagram', '275, 452, 402, 492'),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="1068, 462, 1098, 522" coords2="1068, 462, 1098, 522" shape="rect" alt="Manager:Actor" id="areadiagram_map_GroFbIWGAqAA8iFx_default" href="Actor_QS5JJwWFYFAUCg2y.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Description:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;span&amp;gt;The Registered 
+      User orders a car by selecting an available ride from the search results 
+      and completing the payment process.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Primary actors: Registered User
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Secondary actors: Payment provider
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Preconditions: The user searched for a ride and at least one ride was 
+      provided
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Main flow:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Registered User chooses a ride from the list of available rides
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Registered User is asked to confirm the selected ride
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if Registered User cancels the selection{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Order ride()}
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;else{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Registered User is asked to fill in card information
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Payment provider Processes payment
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if payment successful{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Car sets availability to unavailable
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System calculates route
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System sends route to car}}
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Post-conditions:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Car is unavailable, Firm received money
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Alternative flow:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Payment fails:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User receives an option to retry payment or cancel ride
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User logs out before payment:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Action gets canceled
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="406, 203, 492, 243" coords2="406, 203, 492, 243" shape="rect" alt="Order ride:Use Case" id="areadiagram_map_iroFbIWGAqAA8iFu_default" href="UseCase_ZICxJwWFYFAUCg1R.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Description:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;span&amp;gt;The user searches 
+      for a suitable car or ride from point A to point B, with the option to 
+      select additional accessories for premium users.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Primary actors: User
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Secondary actors: -
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Preconditions: -
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Main flow:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User clicks the button to search for a ride
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User inputs pickup point, destination, pickup time, number of 
+      passengers
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;if User is Premium User{
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User gets the option to input wanted equipment}
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System validates all fields
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System searches available rides that fit the User's requirements
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System creates a route from pickup to destination
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;System displays available rides to the User
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Post-conditions:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Available suitable rides are displayed to the user
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Alternative flow:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;No cars are available:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User gets the option to change their requirements
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User logs out:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Action gets canceled
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;No route from pickup point to destination has been found by the 
+      system:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;User gets the option to change their requirements
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="503, 137, 633, 177" coords2="503, 137, 633, 177" shape="rect" alt="Search for available cars:Use Case" id="areadiagram_map_sroFbIWGAqAA8iFr_default" href="UseCase_aYdRJwWFYFAUCg0f.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;lt;span&amp;gt;An unregistered user creates an account by providing an email 
+      address, full name, date of birth, phone number, and choosing a 
+      password. After successful registration, the user can access the system 
+      as a registered user.&amp;lt;/span&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="298, 38, 378, 78" coords2="298, 38, 378, 78" shape="rect" alt="Register:Use Case" id="areadiagram_map_EroFbIWGAqAA8iFo_default" href="UseCase_A7xhJwWFYFAUCgzv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+<area imageId="diagram" coords="148, 24, 178, 84" coords2="148, 24, 178, 84" shape="rect" alt="Unregistered user:Actor" id="areadiagram_map_groFbIWGAqAA8iFl_default" href="Actor_xL5BJwWFYFAUCgv2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="32, 572, 62, 632" coords2="32, 572, 62, 632" shape="rect" alt="Premium user:Actor" id="areadiagram_map_XLoFbIWGAqAA8iFi_default" href="Actor_iDpBJwWFYFAUCgvt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="148, 252, 178, 312" coords2="148, 252, 178, 312" shape="rect" alt="Registered User:Actor" id="areadiagram_map_rLoFbIWGAqAA8iFf_default" href="Actor_JCuBJwWFYFAUCgvg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="32, 128, 62, 188" coords2="32, 128, 62, 188" shape="rect" alt="User:Actor" id="areadiagram_map_dLoFbIWGAqAA8iFc_default" href="Actor_LZoOJwWFYFAUCgt7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" docContent="&amp;lt;head&amp;gt;
+    
+  &amp;lt;/head&amp;gt;
+  &amp;lt;body style=&amp;quot;margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;&amp;quot;&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Functional requirements:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;ol class=&amp;quot;decimal&amp;quot; margin-left-ltr=&amp;quot;50&amp;quot; margin-right-rtl=&amp;quot;50&amp;quot; style=&amp;quot;margin-left:40pt;list-style-type:none;margin-bottom:0px;margin-top:0px;&amp;quot;&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Customer searches for available cars
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Unregistered customer registers
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Registered customer orders a ride
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Registered customer cancels an ordered ride
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Registered customer views order history
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Standard customer subscribes to monthly premium membership
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Standard customer subscribes to yearly premium membership
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System changes the Standard status to Premium upon subscription
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Premium customer chooses required car accessories
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Premium customer has a 20% discount on all orders
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Manager creates a new asset
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Manager edits an asset
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Manager deletes an asset
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Manager views statistics
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Car reports arrival
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Car sets its availability
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Car reports a technical issue
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Car sends its location
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Car reports battery status
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System sends notifications
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System calculates route
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System sends route
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System saves data
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System cancels route
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System sends cancellation fee
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System finds suitable place to park
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Payment provider processes payment
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Traffic information provider provides the state of the traffic
+      &amp;lt;/li&amp;gt;
+    &amp;lt;/ol&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      Non-functional requirements:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;ol class=&amp;quot;decimal&amp;quot; margin-left-ltr=&amp;quot;50&amp;quot; margin-right-rtl=&amp;quot;50&amp;quot; style=&amp;quot;margin-left:40pt;list-style-type:none;margin-bottom:0px;margin-top:0px;&amp;quot;&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        System will process received location within 1 second
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Car is sending its position to the system every second
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        Car waits for clients for 15 minutes
+      &amp;lt;/li&amp;gt;
+      &amp;lt;li style=&amp;quot;margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;&amp;quot;&amp;gt;
+        The system immediately notifies the system operator when a problem 
+        occurs during a route
+      &amp;lt;/li&amp;gt;
+    &amp;lt;/ol&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;&amp;quot;&amp;gt;
+      &amp;nbsp;
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p style=&amp;quot;margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0;&amp;quot;&amp;gt;
+      &amp;nbsp;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/body&amp;gt;" coords="236, 2, 1003, 769" coords2="236, 2, 1003, 769" shape="rect" alt="System:System" id="areadiagram_map_cLoFbIWGAqAA8iFZ_default" href="System_HZwOJwWFYFAUCgt0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmousedown="clearSpotLight();" onmouseout="hideTooltip()"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/System.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/System.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="System_HZwOJwWFYFAUCgt0.html" class="ItemLink">System : System</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Functional requirements:
+    </p>
+    <ol class="decimal" margin-left-ltr="50" margin-right-rtl="50" style="margin-left:40pt;list-style-type:none;margin-bottom:0px;margin-top:0px;">
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Customer searches for available cars
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Unregistered customer registers
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Registered customer orders a ride
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Registered customer cancels an ordered ride
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Registered customer views order history
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Standard customer subscribes to monthly premium membership
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Standard customer subscribes to yearly premium membership
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System changes the Standard status to Premium upon subscription
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Premium customer chooses required car accessories
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Premium customer has a 20% discount on all orders
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Manager creates a new asset
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Manager edits an asset
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Manager deletes an asset
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Manager views statistics
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Car reports arrival
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Car sets its availability
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Car reports a technical issue
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Car sends its location
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Car reports battery status
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System sends notifications
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System calculates route
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System sends route
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System saves data
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System cancels route
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System sends cancellation fee
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System finds suitable place to park
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Payment provider processes payment
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Traffic information provider provides the state of the traffic
+      </li>
+    </ol>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Non-functional requirements:
+    </p>
+    <ol class="decimal" margin-left-ltr="50" margin-right-rtl="50" style="margin-left:40pt;list-style-type:none;margin-bottom:0px;margin-top:0px;">
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        System will process received location within 1 second
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Car is sending its position to the system every second
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        Car waits for clients for 15 minutes
+      </li>
+      <li style="margin-left:0;margin-right:0;margin-bottom:0;margin-top:0;">
+        The system immediately notifies the system operator when a problem 
+        occurs during a route
+      </li>
+    </ol>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0;">
+      &nbsp;
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_LZoOJwWFYFAUCgt7.html" class="ItemLink">User : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_JCuBJwWFYFAUCgvg.html" class="ItemLink">Registered User : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_iDpBJwWFYFAUCgvt.html" class="ItemLink">Premium user : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_xL5BJwWFYFAUCgv2.html" class="ItemLink">Unregistered user : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_QS5JJwWFYFAUCg2y.html" class="ItemLink">Manager : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_C6VZJwWFYFAUCg54.html" class="ItemLink">Car : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_9SWXJwWFYFAUChB6.html" class="ItemLink">Payment provider : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_5uKfJwWFYFAUChFU.html" class="ItemLink">Traffic information provider : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_vCOopwWFYFAUChN6.html" class="ItemLink">Standard user : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Actor_e653_IWFYGxunwv9.html" class="ItemLink">Time : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_A7xhJwWFYFAUCgzv.html" class="ItemLink">Register : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>An unregistered user creates an account by providing an email 
+      address, full name, date of birth, phone number, and choosing a 
+      password. After successful registration, the user can access the system 
+      as a registered user.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_aYdRJwWFYFAUCg0f.html" class="ItemLink">Search for available cars : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Description:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>The user searches 
+      for a suitable car or ride from point A to point B, with the option to 
+      select additional accessories for premium users.</span>
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Primary actors: User
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Secondary actors: -
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Preconditions: -
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Main flow:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User clicks the button to search for a ride
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User inputs pickup point, destination, pickup time, number of 
+      passengers
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if User is Premium User{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User gets the option to input wanted equipment}
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System validates all fields
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System searches available rides that fit the User's requirements
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System creates a route from pickup to destination
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System displays available rides to the User
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Post-conditions:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Available suitable rides are displayed to the user
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Alternative flow:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No cars are available:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User gets the option to change their requirements
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User logs out:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action gets canceled
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No route from pickup point to destination has been found by the 
+      system:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User gets the option to change their requirements
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_ZICxJwWFYFAUCg1R.html" class="ItemLink">Order ride : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Description:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>The Registered 
+      User orders a car by selecting an available ride from the search results 
+      and completing the payment process.</span>
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Primary actors: Registered User
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Secondary actors: Payment provider
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Preconditions: The user searched for a ride and at least one ride was 
+      provided
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Main flow:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registered User chooses a ride from the list of available rides
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registered User is asked to confirm the selected ride
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Registered User cancels the selection{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order ride()}
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Registered User is asked to fill in card information
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payment provider Processes payment
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if payment successful{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car sets availability to unavailable
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System calculates route
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System sends route to car}}
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Post-conditions:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car is unavailable, Firm received money
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Alternative flow:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payment fails:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User receives an option to retry payment or cancel ride
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User logs out before payment:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action gets canceled
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_VjqpJwWFYFAUCg3g.html" class="ItemLink">Subscribe to premium membership : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Standard user can become Premium user by subscribing to
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_wtLpJwWFYFAUCg4E.html" class="ItemLink">Create asset : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The manager adds a new asset to the system by entering its 
+      relevant details. The system stores the new asset record for future 
+      management and use.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase__SHpJwWFYFAUCg4e.html" class="ItemLink">Edit asset : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The manager modifies the details of an existing asset. The system 
+      saves the changes to ensure the asset information remains current.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_bDfpJwWFYFAUCg5E.html" class="ItemLink">Delete asset : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The manager removes an asset that is no longer needed or 
+      available. The system updates its records to reflect the removal.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_SzYZJwWFYFAUCg5e.html" class="ItemLink">View statistics : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      The manager can <span>access statistical information about system 
+      operations and asset usage. These statistics help monitor performance 
+      and support management decisions.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_KHo5JwWFYFAUCg7H.html" class="ItemLink">Report arrival : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The car's system reports that it has arrived at the pickup 
+      location. The system records the arrival information so that the route 
+      status can be updated.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_jbE5JwWFYFAUCg7Z.html" class="ItemLink">Set availability : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      The car sets its status as available when it isn't currently driving 
+      passengers or en route to a pickup location or when its battery is above 
+      40% and as unavailable otherwise.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_77M5JwWFYFAUCg7r.html" class="ItemLink">Report technical issue : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The car reports a technical problem or malfunction. In response, 
+      the system modifies the route or finds a suitable place to park if 
+      needed.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase__NW5JwWFYFAUCg8d.html" class="ItemLink">Report location : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      The vehicle sends its position to the system every second.&nbsp;
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_E3e5JwWFYFAUCg8z.html" class="ItemLink">Report battery status : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      The car sends its battery status to the system every second. Whenever 
+      the battery charge drops below 40%, and the vehicle is not carrying out 
+      any order at the moment, the system will navigate the vehicle to the 
+      nearest free charging station.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_84f5JwWFYFAUCg9t.html" class="ItemLink">Choose car accessories : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      During search, premium users can choose additional car accessories, such 
+      as entertainment systems, comfort accessories, etc.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_7919JwWFYFAUCg_e.html" class="ItemLink">Send notifications : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The system sends notifications to relevant users about the status 
+      of their route, such as changes of route, cancellations, or vehicle 
+      arrival.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_QRfHJwWFYFAUCg_w.html" class="ItemLink">Calculate route : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      All routes to the destinations are computed by the system and then sent 
+      to the vehicle. The route is computed based on the current position of 
+      the vehicle and the traffic situation.&nbsp;The route is represented by a 
+      collection of waypoints that the autonomous car is able to follow.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_BSQnJwWFYFAUChAC.html" class="ItemLink">Save data : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      The system saves all data (orders, car information, routes, etc.) every 
+      second.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_K7YnJwWFYFAUChAU.html" class="ItemLink">Cancel route : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      If the passengers don't get onboard the vehicle within 15 minutes after 
+      it arrives to the pickup point, the system cancels the order.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_BmsnJwWFYFAUChAm.html" class="ItemLink">Send refund : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      The system sends back the money for the canceled order but deducts a 
+      cancellation fee.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_qZOXJwWFYFAUChCD.html" class="ItemLink">Process payment : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The system processes payment for a ride or a premium membership. 
+      It communicates with the external payment provider to handle the 
+      transaction and determine its outcome.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_rhK3JwWFYFAUChCd.html" class="ItemLink">Find a suitable place to park : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      When the car isn't carrying passengers and is available, the system 
+      finds a place to park and navigates the car there.
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_LqmvJwWFYFAUChEY.html" class="ItemLink">Review order history : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Registered users can <span>view their previous orders and rides. The 
+      system displays relevant historical information, such as booking details 
+      and ride records.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_sbefJwWFYFAUChFl.html" class="ItemLink">Provide state of the traffic : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>The system obtains traffic information from an external traffic 
+      information provider. It uses this information to plan the routes of the 
+      cars.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_LaQgNwWGAqAAghH6.html" class="ItemLink">Unsubscribe from premium membership : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      <span>A premium user can cancel their premium subscription. The system 
+      updates the user's membership status and deletes their access to premium 
+      features.</span>
+    </p>
+  </body></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="UseCase_HsivMIWGAqAA8goq.html" class="ItemLink">Manage assets : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"><head>
+    
+  </head>
+  <body style="margin-left:0;color:#000000;font-weight:normal;margin-right:0;font-size:12px;font-family:Dialog;">
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Description:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manager gets the option to create,edit, or delete assets.
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Primary actors: Manager
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Secondary actors: -
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Preconditions: -
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Main flow:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manager chooses to create new asset or selects an asset to 
+      edit/delete
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Manager chooses to create new asset{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create asset()}
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Manager selects an asset{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Manager chooses to edit the asset{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit asset()}
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Manager chooses to delete the asset{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if Manager confirms the choice{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete asset()}
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else{
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;back to home screen}}}
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Post-conditions:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One of the extensions is called
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      Alternative flow:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manager logs out:
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action gets canceled
+    </p>
+    <p style="margin-left:0pt;margin-right:0pt;margin-bottom:.0001pt;margin-top:0pt;">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+    &nbsp;
+  </body></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		Nalezinková-Kellner-Svajčík	</div>
+</body>
+</html>

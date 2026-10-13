@@ -1,0 +1,448 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Activity Diagram - Subscribe to premium membership</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_top">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-top: 2px #FF0000 solid;" id="spotlight_bottom">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_left">
+	</div>
+	<div style="position:absolute; z-index:2; visibility:hidden;border-left: 2px #FF0000 solid;" id="spotlight_right">
+	</div>
+	<canvas width="100" style="position:absolute; z-index:2; visibility:hidden" id="spotlight_c" height="100">
+	</canvas>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesTop">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden" id="spotLightResourcesRight">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+<a href="#top"><img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>				</td>
+			</tr>
+			<tr>
+				<td>
+<a href="javascript:clearSpotLightFromOpenSpecButton();"><img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute;z-index:4;visibility:hidden" id="linkPopupMenuLayer">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="linkPopupMenuTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="referenceIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="subdiagramIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="transitorIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="position:absolute; z-index:1; visibility:hidden; " id="documentationIconLayer">
+		<table border="0" cellpadding="3" cellspacing="0" style="font-size:1;">
+			<tr>
+				<td>
+					<img src="../images/icons/Documentation.png" style="border:none" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		Nalezinková-Kellner-Svajčík	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="referencedBys">
+		<table border="0" width="100%" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" id="referencedBysTable">
+		</table>
+	</div>
+	<div style="position:absolute; z-index:21; visibility:hidden" id="vplink">
+		<table border="1" cellpadding="0" cellspacing="0" bordercolor="#A9BFD3">
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" width="100%" cellspacing="0">
+						<tr style="background:#DDDDDD">
+							<td style="font-size: 12px;" align="left">
+								<select onchange="vpLinkToggleName()" id="vplink-linkType">
+	<option value="Project Link">Project Link</option>
+	<option value="Page URL">Page URL</option>
+</select>
+							</td>
+							<td style="font-size: 12px;" align="right">
+								<input onclick="javascript: vpLinkToggleName()" id="vplink-checkbox" type="checkbox" />
+								<label for="vplink-checkbox">with Name</label>							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<textarea id="vplink-text" style="width: 348px; height: 60px; border-color: #7EADD9; outline: none;"></textarea>				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+<a href="UseCaseDiagram_EbAOJwWFYFAUCgoK.html" class="PageParentTitle">System : System</a> (in <a href="UseCaseDiagram_EbAOJwWFYFAUCgoK2.html" class="PageParentTitle">Use Case Diagram1</a> / <a href="UseCaseDiagram_EbAOJwWFYFAUCgoK.html" class="PageParentTitle">Use Case Diagram1</a>)<span class="PageParentTitle">&nbsp;.&nbsp;</span><a href="UseCaseDiagram_EbAOJwWFYFAUCgoK2.html" class="PageParentTitle">Subscribe to premium membership : Use Case</a> (in <a href="UseCaseDiagram_EbAOJwWFYFAUCgoK2.html" class="PageParentTitle">Use Case Diagram1</a> / <a href="UseCaseDiagram_EbAOJwWFYFAUCgoK.html" class="PageParentTitle">Use Case Diagram1</a>)	</p>
+	<p class="PageTitle">
+		<span id="PageTitleText">
+			Activity Diagram - Subscribe to premium membership		</span>
+<a onclick="javascript: showVpLink('Nalezinková-Kellner-Svajčík.vpp://diagram/czcz.IWFYGxwggoo', 'Subscribe to premium membership\nNalezinkov&#xe1;-Kellner-Svaj&#x10d;&#xed;k.vpp://diagram/czcz.IWFYGxwggoo', 'Subscribe to premium membership', this); return false;" style="padding-left: 16px; font-size: 12px" href="#"><img src="../images/icons/link.png" border="0"> link</a>	</p>
+	<div style="position: relative; padding-bottom: 20px;">
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: absolute; top: 0; left: 0; z-index: 20;" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),hideLinkPopup(),hideReferencedBys();">
+			<tr>
+				<td>
+<span class="TableContent">Jump to:</span>					<select id="SelectShape" class="TableContent" onChange="scrollWin('diagram', this.value);hideLinkPopup();showSpotLight('diagram', this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|821.0|549.0|20.0|20.0|ActivityFinalNode_sL_hbIWGAqAA8gyL.html|ActivityFinalNode_sL_hbIWGAqAA8gyL.html|sL_hbIWGAqAA8gyK" id="optionsL_hbIWGAqAA8gyK">Update account status to premium : Activity Final Node</option>
+<option value="shape|801.0|456.0|20.0|40.0|MergeNode_ljphbIWGAqAA8gvr.html|MergeNode_ljphbIWGAqAA8gvr.html|FjphbIWGAqAA8gvq" id="optionFjphbIWGAqAA8gvq">Unnamed Merge Node : Merge Node</option>
+<option value="shape|673.0|408.0|20.0|40.0|DecisionNode_fVcX_IWFYGxwgg42.html|DecisionNode_fVcX_IWFYGxwgg42.html|fVcX.IWFYGxwgg41" id="optionfVcX.IWFYGxwgg41">Payment successfull : Decision Node</option>
+<option value="shape|533.0|238.0|60.0|40.0|ActivityAction_ZrNn_IWFYGxwgg21.html|ActivityAction_ZrNn_IWFYGxwgg21.html|ZrNn.IWFYGxwgg20" id="optionZrNn.IWFYGxwgg20">Generate QR code : Action</option>
+<option value="shape|653.0|100.0|60.0|40.0|ActivityAction_J9Mn_IWFYGxwgg0_.html|ActivityAction_J9Mn_IWFYGxwgg0_.html|J9Mn.IWFYGxwgg09" id="optionJ9Mn.IWFYGxwgg09">Deduct points : Action</option>
+<option value="shape|553.0|100.0|20.0|40.0|DecisionNode_uN7H_IWFYGxwgg0B.html|DecisionNode_uN7H_IWFYGxwgg0B.html|uN7H.IWFYGxwgg0A" id="optionuN7H.IWFYGxwgg0A">Enough points? : Decision Node</option>
+<option value="shape|533.0|408.0|60.0|40.0|ActivityAction_cWhH_IWFYGxwggzc.html|ActivityAction_cWhH_IWFYGxwggzc.html|cWhH.IWFYGxwggzb" id="optioncWhH.IWFYGxwggzb">Process payment : Action</option>
+<option value="shape|403.0|100.0|20.0|40.0|DecisionNode_3PIH_IWFYGxwggy1.html|DecisionNode_3PIH_IWFYGxwggy1.html|3PIH.IWFYGxwggy0" id="option3PIH.IWFYGxwggy0">Select payment method : Decision Node</option>
+<option value="shape|335.0|291.0|77.0|40.0|ActivityAction_bRp7_IWFYGxwggvN.html|ActivityAction_bRp7_IWFYGxwggvN.html|bRp7.IWFYGxwggvM" id="optionbRp7.IWFYGxwggvM">Apply 15% discount : Action</option>
+<option value="shape|246.0|291.0|20.0|40.0|DecisionNode_oLmb_IWFYGxwggsf.html|DecisionNode_oLmb_IWFYGxwggsf.html|oLmb.IWFYGxwggse" id="optionoLmb.IWFYGxwggse">Document valid? : Decision Node</option>
+<option value="shape|206.0|211.0|100.0|40.0|ActivityAction_hmLr_IWFYGxwggrw.html|ActivityAction_hmLr_IWFYGxwggrw.html|6mLr.IWFYGxwggrv" id="option6mLr.IWFYGxwggrv">Upload documemt : Action</option>
+<option value="shape|246.0|100.0|20.0|40.0|DecisionNode_cqkr_IWFYGxwggqF.html|DecisionNode_cqkr_IWFYGxwggqF.html|Mqkr.IWFYGxwggqE" id="optionMqkr.IWFYGxwggqE">Are you a Student/Senior/ZTP? : Decision Node</option>
+<option value="shape|54.0|110.0|40.0|20.0|InitialNode_QLPL_IWFYGxwggpl.html|InitialNode_QLPL_IWFYGxwggpl.html|QLPL.IWFYGxwggpk" id="optionQLPL.IWFYGxwggpk">click on Subscribe button : Initial Node</option>
+<option value="shape|2.0|0.0|962.0|603.0|Activity_db7L_IWFYGxwggpV.html|Activity_db7L_IWFYGxwggpV.html|db7L.IWFYGxwggpU" id="optiondb7L.IWFYGxwggpU">Subscribe to premium membership : Activity</option>
+</select>				</td>
+			</tr>
+		</table>
+		<table border="0" cellpadding="0" width="100%" cellspacing="0" style="position: relative; top: 24;">
+			<tr>
+				<td>
+					<img id="diagram" src="../images/Subscribe_to_premium_membership.png" usemap="#diagram_map" class="Image" width="968" height="607"/>
+					<map name="diagram_map">
+<area imageId="diagram" coords="249.0, 140.0, 249.0, 211.0, 263.0, 211.0, 263.0, 140.0" coords2="249.0, 140.0, 249.0, 211.0, 263.0, 211.0, 263.0, 140.0" shape="poly" alt="Yes:Control Flow" id="areadiagram_map_bsqb.IWFYGxwggsQ_default" href="ControlFlow_6sqb_IWFYGxwggsP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="249.0, 251.0, 249.0, 291.0, 263.0, 291.0, 263.0, 251.0" coords2="249.0, 251.0, 249.0, 291.0, 263.0, 291.0, 263.0, 251.0" shape="poly" alt=":Control Flow" id="areadiagram_map_p_S7.IWFYGxwggug_default" href="ControlFlow_y_S7_IWFYGxwgguf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="94.0, 113.0, 94.0, 127.0, 246.0, 127.0, 246.0, 113.0" coords2="94.0, 113.0, 94.0, 127.0, 246.0, 127.0, 246.0, 113.0" shape="poly" alt=":Control Flow" id="areadiagram_map_ram7.IWFYGxwgguw_default" href="ControlFlow_8am7_IWFYGxwgguv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="246.0, 117.73737, 167.5493, 174.0, 160.0, 174.0, 160.0, 179.41414, 155.0, 183.0, 160.0, 189.875, 160.0, 304.0, 157.0, 304.0, 157.0, 318.0, 160.0, 318.0, 160.0, 321.0, 174.0, 321.0, 174.0, 318.0, 246.0, 318.0, 246.0, 304.0, 174.0, 304.0, 174.0, 186.11111, 246.0, 134.47475, 246.0, 134.47475, 246.0, 117.73737" coords2="246.0, 117.73737, 167.5493, 174.0, 160.0, 174.0, 160.0, 179.41414, 155.0, 183.0, 160.0, 189.875, 160.0, 304.0, 157.0, 304.0, 157.0, 318.0, 160.0, 318.0, 160.0, 321.0, 174.0, 321.0, 174.0, 318.0, 246.0, 318.0, 246.0, 304.0, 174.0, 304.0, 174.0, 186.11111, 246.0, 134.47475, 246.0, 134.47475, 246.0, 117.73737" shape="poly" alt="No:Control Flow" id="areadiagram_map_hS27.IWFYGxwggu6_default" href="ControlFlow_ri27_IWFYGxwggu5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="266.0, 304.0, 266.0, 318.0, 335.0, 318.0, 335.0, 304.0" coords2="266.0, 304.0, 266.0, 318.0, 335.0, 318.0, 335.0, 304.0" shape="poly" alt="Yes:Control Flow" id="areadiagram_map_3Hd7.IWFYGxwggwG_default" href="ControlFlow_yHd7_IWFYGxwggwF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="423.0, 113.0, 423.0, 127.0, 553.0, 127.0, 553.0, 113.0" coords2="423.0, 113.0, 423.0, 127.0, 553.0, 127.0, 553.0, 113.0" shape="poly" alt="Points:Control Flow" id="areadiagram_map_6Egn.IWFYGxwgg0l_default" href="ControlFlow_6Egn_IWFYGxwgg0k.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="406.0, 73.0, 406.0, 76.0, 403.0, 76.0, 403.0, 90.0, 406.0, 90.0, 406.0, 100.0, 420.0, 100.0, 420.0, 90.0, 556.0, 90.0, 556.0, 100.0, 570.0, 100.0, 570.0, 90.0, 573.0, 90.0, 573.0, 76.0, 570.0, 76.0, 570.0, 73.0, 556.0, 73.0, 556.0, 76.0, 420.0, 76.0, 420.0, 73.0" coords2="406.0, 73.0, 406.0, 76.0, 403.0, 76.0, 403.0, 90.0, 406.0, 90.0, 406.0, 100.0, 420.0, 100.0, 420.0, 90.0, 556.0, 90.0, 556.0, 100.0, 570.0, 100.0, 570.0, 90.0, 573.0, 90.0, 573.0, 76.0, 570.0, 76.0, 570.0, 73.0, 556.0, 73.0, 556.0, 76.0, 420.0, 76.0, 420.0, 73.0" shape="poly" alt="No:Control Flow" id="areadiagram_map_1XIn.IWFYGxwgg0v_default" href="ControlFlow_pXIn_IWFYGxwgg0u.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="573.0, 113.0, 573.0, 127.0, 653.0, 127.0, 653.0, 113.0" coords2="573.0, 113.0, 573.0, 127.0, 653.0, 127.0, 653.0, 113.0" shape="poly" alt="Yes:Control Flow" id="areadiagram_map_T2in.IWFYGxwgg1i_default" href="ControlFlow_T2in_IWFYGxwgg1h.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="423.0, 119.8797, 423.0, 139.72932, 533.0, 248.0752, 533.0, 238.0, 542.92365, 238.0, 423.0, 119.8797" coords2="423.0, 119.8797, 423.0, 139.72932, 533.0, 248.0752, 533.0, 238.0, 542.92365, 238.0, 423.0, 119.8797" shape="poly" alt="Bank Transfer:Control Flow" id="areadiagram_map_1qjn.IWFYGxwgg3N_default" href="ControlFlow_pqjn_IWFYGxwgg3M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="405.90625, 140.0, 405.11978, 291.0, 412.0, 291.0, 412.0, 314.0, 419.0, 314.0, 419.90625, 140.0" coords2="405.90625, 140.0, 405.11978, 291.0, 412.0, 291.0, 412.0, 314.0, 419.0, 314.0, 419.90625, 140.0" shape="poly" alt=":Control Flow" id="areadiagram_map_0xHn.IWFYGxwgg3h_default" href="ControlFlow_oxHn_IWFYGxwgg3g.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="266.0, 113.0, 266.0, 127.0, 403.0, 127.0, 403.0, 113.0" coords2="266.0, 113.0, 266.0, 127.0, 403.0, 127.0, 403.0, 113.0" shape="poly" alt=":Control Flow" id="areadiagram_map_Qg3n.IWFYGxwgg3t_default" href="ControlFlow_fA3n_IWFYGxwgg3s.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="556.0, 278.0, 556.0, 408.0, 570.0, 408.0, 570.0, 278.0" coords2="556.0, 278.0, 556.0, 408.0, 570.0, 408.0, 570.0, 278.0" shape="poly" alt=":Control Flow" id="areadiagram_map_e1AX.IWFYGxwgg4J_default" href="ControlFlow_W1AX_IWFYGxwgg4I.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="423.0, 127.00787, 423.0, 140.0, 413.32788, 140.0, 532.0, 425.0, 533.0, 424.6154, 533.0, 424.6154, 533.0, 408.0, 540.0033, 408.0, 423.0, 127.00787" coords2="423.0, 127.00787, 423.0, 140.0, 413.32788, 140.0, 532.0, 425.0, 533.0, 424.6154, 533.0, 424.6154, 533.0, 408.0, 540.0033, 408.0, 423.0, 127.00787" shape="poly" alt="Credit/Debit Card:Control Flow" id="areadiagram_map_kTIX.IWFYGxwgg4Z_default" href="ControlFlow_kTIX_IWFYGxwgg4Y.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="593.0, 421.0, 593.0, 435.0, 673.0, 435.0, 673.0, 421.0" coords2="593.0, 421.0, 593.0, 435.0, 673.0, 435.0, 673.0, 421.0" shape="poly" alt=":Control Flow" id="areadiagram_map_7sRX.IWFYGxwgg6M_default" href="ControlFlow_7sRX_IWFYGxwgg6L.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="423.0, 116.723404, 423.0, 132.27562, 423.0, 132.27562, 676.0, 231.50883, 676.0, 408.0, 690.0, 408.0, 690.0, 237.0, 693.0, 223.0, 690.0, 221.81915, 690.0, 218.0, 680.2973, 218.0, 423.0, 116.723404" coords2="423.0, 116.723404, 423.0, 132.27562, 423.0, 132.27562, 676.0, 231.50883, 676.0, 408.0, 690.0, 408.0, 690.0, 237.0, 693.0, 223.0, 690.0, 221.81915, 690.0, 218.0, 680.2973, 218.0, 423.0, 116.723404" shape="poly" alt="No:Control Flow" id="areadiagram_map_kqlX.IWFYGxwgg6o_default" href="ControlFlow_kqlX_IWFYGxwgg6n.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="715.0, 122.0, 713.0, 122.57143, 713.0, 140.0, 705.0966, 140.0, 801.0, 467.74756, 801.0, 456.0, 812.4561, 456.0, 715.0, 122.0" coords2="715.0, 122.0, 713.0, 122.57143, 713.0, 140.0, 705.0966, 140.0, 801.0, 467.74756, 801.0, 456.0, 812.4561, 456.0, 715.0, 122.0" shape="poly" alt=":Control Flow" id="areadiagram_map_CTphbIWGAqAA8gv3_default" href="ControlFlow_ETphbIWGAqAA8gv2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="693.0, 423.94656, 693.0, 439.00763, 801.0, 483.5267, 801.0, 468.46564, 801.0, 468.46564, 693.0, 423.94656" coords2="693.0, 423.94656, 693.0, 439.00763, 801.0, 483.5267, 801.0, 468.46564, 801.0, 468.46564, 693.0, 423.94656" shape="poly" alt="Yes:Control Flow" id="areadiagram_map_WurhbIWGAqAA8gxh_default" href="ControlFlow_yurhbIWGAqAA8gxg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="821.0, 487.10526, 821.0, 496.0, 808.5783, 496.0, 821.0, 550.2632, 821.0, 549.0, 835.1687, 549.0, 821.0, 487.10526" coords2="821.0, 487.10526, 821.0, 496.0, 808.5783, 496.0, 821.0, 550.2632, 821.0, 549.0, 835.1687, 549.0, 821.0, 487.10526" shape="poly" alt=":Control Flow" id="areadiagram_map_lL_hbIWGAqAA8gyQ_default" href="ControlFlow_RL_hbIWGAqAA8gyP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="821, 549, 841, 569" coords2="821, 549, 841, 569" shape="rect" alt="Update account status to premium:Activity Final Node" id="areadiagram_map_sL_hbIWGAqAA8gyK_default" href="ActivityFinalNode_sL_hbIWGAqAA8gyL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="801, 456, 821, 496" coords2="801, 456, 821, 496" shape="rect" alt=":Merge Node" id="areadiagram_map_FjphbIWGAqAA8gvq_default" href="MergeNode_ljphbIWGAqAA8gvr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="673, 408, 693, 448" coords2="673, 408, 693, 448" shape="rect" alt="Payment successfull:Decision Node" id="areadiagram_map_fVcX.IWFYGxwgg41_default" href="DecisionNode_fVcX_IWFYGxwgg42.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="533, 238, 593, 278" coords2="533, 238, 593, 278" shape="rect" alt="Generate QR code:Action" id="areadiagram_map_ZrNn.IWFYGxwgg20_default" href="ActivityAction_ZrNn_IWFYGxwgg21.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="653, 100, 713, 140" coords2="653, 100, 713, 140" shape="rect" alt="Deduct points:Action" id="areadiagram_map_J9Mn.IWFYGxwgg09_default" href="ActivityAction_J9Mn_IWFYGxwgg0_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="553, 100, 573, 140" coords2="553, 100, 573, 140" shape="rect" alt="Enough points?:Decision Node" id="areadiagram_map_uN7H.IWFYGxwgg0A_default" href="DecisionNode_uN7H_IWFYGxwgg0B.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="533, 408, 593, 448" coords2="533, 408, 593, 448" shape="rect" alt="Process payment:Action" id="areadiagram_map_cWhH.IWFYGxwggzb_default" href="ActivityAction_cWhH_IWFYGxwggzc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="403, 100, 423, 140" coords2="403, 100, 423, 140" shape="rect" alt="Select payment method:Decision Node" id="areadiagram_map_3PIH.IWFYGxwggy0_default" href="DecisionNode_3PIH_IWFYGxwggy1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="335, 291, 412, 331" coords2="335, 291, 412, 331" shape="rect" alt="Apply 15% discount:Action" id="areadiagram_map_bRp7.IWFYGxwggvM_default" href="ActivityAction_bRp7_IWFYGxwggvN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="246, 291, 266, 331" coords2="246, 291, 266, 331" shape="rect" alt="Document valid?:Decision Node" id="areadiagram_map_oLmb.IWFYGxwggse_default" href="DecisionNode_oLmb_IWFYGxwggsf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="206, 211, 306, 251" coords2="206, 211, 306, 251" shape="rect" alt="Upload documemt:Action" id="areadiagram_map_6mLr.IWFYGxwggrv_default" href="ActivityAction_hmLr_IWFYGxwggrw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="246, 100, 266, 140" coords2="246, 100, 266, 140" shape="rect" alt="Are you a Student/Senior/ZTP?:Decision Node" id="areadiagram_map_Mqkr.IWFYGxwggqE_default" href="DecisionNode_cqkr_IWFYGxwggqF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="54, 110, 94, 130" coords2="54, 110, 94, 130" shape="rect" alt="click on Subscribe button:Initial Node" id="areadiagram_map_QLPL.IWFYGxwggpk_default" href="InitialNode_QLPL_IWFYGxwggpl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+<area imageId="diagram" coords="2, 0, 964, 603" coords2="2, 0, 964, 603" shape="rect" alt="Subscribe to premium membership:Activity" id="areadiagram_map_db7L.IWFYGxwggpU_default" href="Activity_db7L_IWFYGxwggpV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()" onmousedown="clearSpotLight();"/>
+</map>
+				</td>
+			</tr>
+		</table>
+		<p>
+		</p>
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Description</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/ActivityFinial.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/ActivityFinial.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="ActivityFinalNode_sL_hbIWGAqAA8gyL.html" class="ItemLink">Update account status to premium : Activity Final Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/MergeNode.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/MergeNode.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="MergeNode_ljphbIWGAqAA8gvr.html" class="ItemLink">N/A : Merge Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/DecisionNode.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/DecisionNode.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="DecisionNode_fVcX_IWFYGxwgg42.html" class="ItemLink">Payment successfull : Decision Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Action.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Action.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="ActivityAction_ZrNn_IWFYGxwgg21.html" class="ItemLink">Generate QR code : Action</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Action.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Action.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="ActivityAction_J9Mn_IWFYGxwgg0_.html" class="ItemLink">Deduct points : Action</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/DecisionNode.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/DecisionNode.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="DecisionNode_uN7H_IWFYGxwgg0B.html" class="ItemLink">Enough points? : Decision Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Action.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Action.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="ActivityAction_cWhH_IWFYGxwggzc.html" class="ItemLink">Process payment : Action</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/DecisionNode.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/DecisionNode.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="DecisionNode_3PIH_IWFYGxwggy1.html" class="ItemLink">Select payment method : Decision Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Action.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Action.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="ActivityAction_bRp7_IWFYGxwggvN.html" class="ItemLink">Apply 15% discount : Action</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/DecisionNode.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/DecisionNode.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="DecisionNode_oLmb_IWFYGxwggsf.html" class="ItemLink">Document valid? : Decision Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Action.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Action.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="ActivityAction_hmLr_IWFYGxwggrw.html" class="ItemLink">Upload documemt : Action</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/DecisionNode.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/DecisionNode.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="DecisionNode_cqkr_IWFYGxwggqF.html" class="ItemLink">Are you a Student/Senior/ZTP? : Decision Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InitialNode.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InitialNode.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="InitialNode_QLPL_IWFYGxwggpl.html" class="ItemLink">click on Subscribe button : Initial Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Activity.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Activity.png'); background-repeat: no-repeat; background-size: contain;">
+					</div>
+					&nbsp; <a href="Activity_db7L_IWFYGxwggpV.html" class="ItemLink">Subscribe to premium membership : Activity</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td style="padding: 5px 0">
+<span class="TableContent Documentation"></span>			</td>
+		</tr>
+	</table>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table border="0" cellpadding="0" width="100%" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		Nalezinková-Kellner-Svajčík	</div>
+</body>
+</html>
