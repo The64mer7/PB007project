@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProjectsViewInfo>
 	<DiagramOpenInfos activeDiagramId="EbAOJwWFYFAUCgoK">
-		<Info bounds="Re:0.0,0.0,1415.0,698.0" diagramId="EbAOJwWFYFAUCgoK" maximized="true" offsetX="0" offsetY="0"/>
+		<Info bounds="Re:0.0,0.0,986.0,601.0" diagramId="EbAOJwWFYFAUCgoK" maximized="true" offsetX="0" offsetY="98"/>
 		<Info bounds="Re:0.0,0.0,0.0,0.0" diagramId="czcz.IWFYGxwggoo" maximized="true" offsetX="0" offsetY="0"/>
+		<Info bounds="Re:0.0,0.0,0.0,0.0" diagramId="3QyL.IWFYGxujAoq" maximized="true" offsetX="0" offsetY="0"/>
 	</DiagramOpenInfos>
 	<DiagramLastActivated>
-		<Diagram id="EbAOJwWFYFAUCgoK" time="1791916944319"/>
+		<Diagram id="EbAOJwWFYFAUCgoK" time="1791928713889"/>
+		<Diagram id="3QyL.IWFYGxujAoq" time="1791928713808"/>
 		<Diagram id="czcz.IWFYGxwggoo" time="1791916944271"/>
 		<Diagram id="Use Case Statement" time="0"/>
 		<Diagram id="Use Case" time="0"/>
