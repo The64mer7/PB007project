@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProjectsViewInfo>
-	<DiagramOpenInfos activeDiagramId="DAqGMYWFYGxunws5">
+	<DiagramOpenInfos activeDiagramId="fq9zuYWGAqAA8hCt">
 		<Info bounds="Re:0.0,0.0,0.0,0.0" diagramId="EbAOJwWFYFAUCgoK" maximized="true" offsetX="0" offsetY="0"/>
 		<Info bounds="Re:0.0,0.0,0.0,0.0" diagramId="czcz.IWFYGxwggoo" maximized="true" offsetX="0" offsetY="0"/>
 		<Info bounds="Re:0.0,0.0,0.0,0.0" diagramId="3QyL.IWFYGxujAoq" maximized="true" offsetX="0" offsetY="0"/>
 		<Info bounds="Re:0.0,0.0,0.0,0.0" diagramId="GLXwqoWGAqAA8goR" maximized="true" offsetX="0" offsetY="0"/>
-		<Info bounds="Re:0.0,0.0,986.0,601.0" diagramId="DAqGMYWFYGxunws5" maximized="true" offsetX="0" offsetY="0"/>
+		<Info bounds="Re:0.0,0.0,0.0,0.0" diagramId="DAqGMYWFYGxunws5" maximized="true" offsetX="0" offsetY="0"/>
+		<Info bounds="Re:0.0,0.0,1196.0,601.0" diagramId="fq9zuYWGAqAA8hCt" maximized="true" offsetX="0" offsetY="0"/>
 	</DiagramOpenInfos>
 	<DiagramLastActivated>
-		<Diagram id="DAqGMYWFYGxunws5" time="1793356679102"/>
+		<Diagram id="fq9zuYWGAqAA8hCt" time="1793648953082"/>
+		<Diagram id="DAqGMYWFYGxunws5" time="1793648796533"/>
 		<Diagram id="3QyL.IWFYGxujAoq" time="1793356678986"/>
 		<Diagram id="GLXwqoWGAqAA8goR" time="1793356511385"/>
 		<Diagram id="EbAOJwWFYFAUCgoK" time="1793127775268"/>
